@@ -6,7 +6,6 @@
 ├── evaluations/
 ├── generated_prompts/
 ├── README.md
-└── README.md
 ```
 
 ### **Files and Directories**
