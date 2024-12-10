@@ -4,13 +4,13 @@
 ```
 .
 ├── evaluations/
-├── generated_prompts/
+├── generated_responses/
 ├── README.md
 ```
 
 ### **Files and Directories**
 
-1. **`generated_prompts/`**  
+1. **`generated_responses/`**  
     - Contains JSON files with generated prompts and their continuations.
     - **Example File**: `gpt2_k50_p1_t1.0_n25.json`  
         - **`k50`**: Top-50 sampling.  
@@ -20,7 +20,7 @@
 
     ### **Example JSON Format**
 
-    Each file in `generated_prompts` follows this structure:
+    Each file in `generated_responses` follows this structure:
 
     ```json
     {
