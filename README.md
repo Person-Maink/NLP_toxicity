@@ -12,11 +12,12 @@
 
 1. **`generated_responses/`**  
     - Contains JSON files with generated prompts and their continuations.
-    - **Example File**: `gpt2_k50_p1_t1.0_n25.json`  
+    - **Example File**: `gpt2_k50_p1_t1.0_n25_l150.json`  
         - **`k50`**: Top-50 sampling.  
         - **`p1`**: Top-p (nucleus) sampling with `p=1`.  
         - **`t1.0`**: Temperature set to `1.0`.  
         - **`n25`**: 25 continuations per prompt.
+        - **`l150`**: 150 tokens length.
 
     ### **Example JSON Format**
 
@@ -38,8 +39,8 @@
        {
          "prompt": "Sample prompt text",
          "continuations": [
-           {"seed": 12345, "text": "Generated response 1"},
-           {"seed": 67890, "text": "Generated response 2"}
+            "cont1",
+            "cont2"
          ]
        }
      ]
