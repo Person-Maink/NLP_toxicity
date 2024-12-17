@@ -18,16 +18,12 @@ def pick_toxicity_responses(data, num_responses=10, mode="top"):
     continuations = []
     for prompt_data in data['generated_responses']:
         prompt_text = prompt_data['prompt']['text']
-        for cont in prompt_data['continuations']:
-            continuation_text = cont['text']
-
-            combined_text = f"{prompt_text} ||||| {continuation_text}"
-
-            continuations.append({
-                "prompt": prompt_text,
-                "continuation": combined_text,
-                "toxicity_score": cont['toxicity_score']
-            })
+        max_cont = max(prompt_data['continuations'], key=lambda x: x['toxicity_score'])
+        continuations.append({
+            "prompt": prompt_text,
+            "continuation": f"{prompt_text} ||||| {max_cont['text']}",
+            "toxicity_score": max_cont['toxicity_score']
+        })
     
     # Sort continuations by toxicity score
     continuations_sorted = sorted(
@@ -90,7 +86,7 @@ file_path_mistral = "evaluations/mistral_eval_k50_p1_t1.0_n25_l150.json"
 file_path_gpt2 = "evaluations/gpt2_eval_k50_p1_t1.0_n25_l150.json"
 file_path_bloom = "evaluations/bloom7b_eval_k50_p1_t1.0_n25_l50.json"
 
-data = load_data(file_path_bloom)
+data = load_data(file_path_llama)
 
 top_responses = pick_toxicity_responses(data, num_responses=7, mode="top")
 lowest_responses = pick_toxicity_responses(data, num_responses=3, mode="lowest")
