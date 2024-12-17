@@ -5,6 +5,7 @@
 .
 ├── evaluations/
 ├── generated_responses/
+├── human_evaluation/
 ├── README.md
 ```
 
@@ -48,3 +49,6 @@
 
 2. **`evaluations/`**
     - Contains JSON files with evaluated metrics on prompts.
+
+3. **`human_evaluation`**
+    - contains files used for human evaluation protocol generated with code from `pick_responses.py`.
