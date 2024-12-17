@@ -48,7 +48,9 @@
     }
 
 2. **`evaluations/`**
-    - Contains JSON files with evaluated metrics on prompts.
+    - Contains JSON files with evaluated metrics on continuations.
+    - Note: this is evaluation from [Perspective API](https://perspectiveapi.com/) **on the continuations only**, i.e. without the prompt.
 
-3. **`human_evaluation`**
+3. **`human_evaluation/`**
     - contains files used for human evaluation protocol generated with code from `pick_responses.py`.
+    - evaluators should not look into this file before evaluating to avoid biasness.
