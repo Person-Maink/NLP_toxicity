@@ -12,24 +12,37 @@ def load_json_files_from_folder(folder_path):
                 try:
                     data = json.load(f)
 
+                    model_info = data.get('model_info', 'Unknown model')
+
                     if 'top_responses' in data:
-                        continuations.extend([resp['continuation'] for resp in data['top_responses']])
+                        for resp in data['top_responses']:
+                            continuations.append({
+                                'model': model_info['model_name'],
+                                'continuation': resp['continuation'],
+                                'attribution_score': resp.get('toxicity_score', 'N/A')
+                            })
 
                     if 'lowest_responses' in data:
-                        continuations.extend([resp['continuation'] for resp in data['lowest_responses']])
+                        for resp in data['lowest_responses']:
+                            continuations.append({
+                                'model': model_info['model_name'],
+                                'continuation': resp['continuation'],
+                                'attribution_score': resp.get('toxicity_score', 'N/A')
+                            })
+
                 except json.JSONDecodeError as e:
                     print(f"Error reading {filename}: {e}")
 
     return continuations
 
-folder_path = "./human_evaluation/"  
+folder_path = "./human_evaluation/"
 continuations = load_json_files_from_folder(folder_path)
 
-
 # Shuffle the continuations
-random.shuffle(continuations)
+# random.shuffle(continuations)
 
 for cont in continuations:
-    print(cont)
+    print(f"Model: {cont['model']}")
+    print(f"Continuation: {cont['continuation']}")
+    print(f"Attribution Score: {cont['attribution_score']}")
     print("-" * 80)
-
