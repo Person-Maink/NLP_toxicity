@@ -1,6 +1,6 @@
 ## **Toxicity Analysis of LLMs**
 
-This repository is dedicated to a project analyzing the influence of prompts on the toxicity of language model outputs. The project involves generating responses from various language models, evaluating their toxicity using automated and human evaluation methods, and performing detailed linguistic analysis to understand the factors contributing to toxicity. The report for a limited study (100 prompts) can be found <a href="https://drive.google.com/file/d/1gP5bjmvO5nJp64NsY6HnB6wHO0dwF_KJ/view?usp=sharing" target="_blank">here</a>.
+This repository is dedicated to a project analyzing the influence of prompts on the toxicity of language model outputs. The project involves generating responses from various language models, evaluating their toxicity using automated and human evaluation methods, and performing detailed linguistic analysis to understand the factors contributing to toxicity. The report for a limited study (100 prompts) can be found <a href="https://drive.google.com/file/d/1gP5bjmvO5nJp64NsY6HnB6wHO0dwF_KJ/view?usp=sharing" target="_blank">here</a>. The final report can be found in ```output.pdf```
 
 ### **Repository Structure**
 ```
